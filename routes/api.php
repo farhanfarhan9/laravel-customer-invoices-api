@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::group(['prefix' => 'V1', 'namespace'=>'App\Http\Controllers\Api\V1'],function(){
+    route::apiResource('customers', CustomerController::class);
+    route::apiResource('invoices', InvoiceController::class);
+});
+
