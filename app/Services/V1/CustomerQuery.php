@@ -42,7 +42,7 @@ class CustomerQuery {
 
         foreach ($operators as $operator) {
           if(isset($query[$operator])){
-            $eloQuery[] = [$column, $this->operatorMap($operator), $query[$operator]];
+            $eloQuery[] = [$column, $this->operatorMap[$operator], $query[$operator]];
           }
         }
       }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\V1;
 
 use App\Models\Customer;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreCustomerRequest;
 use App\Http\Resources\V1\CustomerResource;
@@ -20,9 +21,9 @@ class CustomerController extends Controller
     public function index(Request $request)
     {
         $filter = new CustomerQuery();
-        $queryItem = $filter->transform($request); //[['column', 'operator', 'value']]
+        $queryItems = $filter->transform($request); //[['column', 'operator', 'value']]
 
-        if(count($queryItem) == 0){
+        if(count($queryItems) == 0){
             return new CustomerCollection(Customer::paginate());
         }else{
             return new CustomerCollection(Customer::where($queryItems)->paginate());
