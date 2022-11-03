@@ -16,7 +16,6 @@ class UpdateCustomerRequest extends FormRequest
     public function authorize()
     {
         $user = $this->user();
-        
         return $user != null && $user->tokenCan('update');
     }
 
