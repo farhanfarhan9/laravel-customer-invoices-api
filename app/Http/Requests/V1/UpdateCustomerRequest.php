@@ -17,7 +17,7 @@ class UpdateCustomerRequest extends FormRequest
     {
         $user = $this->user();
         
-        return $user != null && $user->tokenCan('update'); f4d044a9ebe445bcc047ecae3466fc10656fc0a3
+        return $user != null && $user->tokenCan('update');
     }
 
     /**
